@@ -1,0 +1,114 @@
+
+<div class="bootstrap-wrapper">
+
+    <div class="container mt">
+
+       
+
+        <div class="row">
+
+          <!--  -->
+
+            
+                 
+          <!--  -->
+            <div class="col-md-6 offset-md-3">
+
+
+                <div class="container text-center">
+                  <img class="img-fluid" style="width: 100px;" src="/assets/password.png.png" alt="">
+                </div>
+
+                <h1 class="text-center">Login here !! </h1>
+             
+                <!-- creating form -->
+
+                <div>
+               <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+                
+                    <div class="container-fluid mt-5"> 
+                      
+                     
+                         <mat-form-field class="full-width" appearance="outline">
+                              
+                           
+                             <mat-label><span class="bi bi-envelope"> Email Id </span></mat-label>
+                               <input 
+                               [(ngModel)]="credentails.email"
+                               name="email"
+                          
+                               formControlName="email"
+                               id="email"
+                               type="email" matInput name="email" value="">
+ 
+                          
+                          </mat-form-field>
+                         
+                          <small class="error-message"> 
+                          <div *ngIf="loginForm.get('email')?.hasError('required')&&loginForm.touched &&loginForm.dirty">
+                            Email is required.
+                          </div>
+                          <div *ngIf="loginForm.get('email')?.hasError('invalidEmail')">
+                            Invalid email address.
+                          </div>
+                        </small>
+                           
+
+                   
+                            <mat-form-field class="full-width" appearance="outline">
+                                        <mat-label> <span class="bi bi-lock"> Password</span> </mat-label>
+                                         <input
+                                         [(ngModel)]="credentails.password"
+                                         name="password"
+                                         minlength="6"
+                                          required
+                                          formControlName="password"
+                                         type="password" matInput name="password" value=""  >
+                              </mat-form-field>
+                               
+                              <small class="error-message"> 
+                              <div *ngIf="loginForm.get('password')?.hasError('required') &&loginForm.touched &&loginForm.dirty">
+                                Password is required.
+                              </div>
+                              <div *ngIf="loginForm.get('password')?.hasError('invalidPassword')">
+                                Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one number.
+                              </div>
+                            </small>
+
+                              <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div> 
+                                
+                              <!-- <div *ngIf="loginForm.dirty && loginForm.invalid ">
+                                <span style="color: red;">Please enter the Email Id and Password</span>
+                              </div> -->
+
+                      
+                          <div class="container text-center">
+
+                            <button  class="bi bi-person mt-1" type="submit" mat-raised-button color="primary" routerLink="#" [disabled]="loginForm.invalid">Login</button>  
+                             
+                            <button class="mt-1"  mat-raised-button color="warn" style="margin-left: 10px;" routerLinkActive="active-link" routerLink="/forgot-password">Forgot Password</button>
+                             
+                            
+                          </div>
+                          
+                
+
+                </div>
+                    
+                 
+ 
+                </form> 
+                </div>
+                 
+ 
+                 
+
+
+             </div>
+
+        </div>
+
+    </div>
+
+ 
+  

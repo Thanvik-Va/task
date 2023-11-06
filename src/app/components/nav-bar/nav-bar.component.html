@@ -1,0 +1,70 @@
+
+<div id="nav">
+<mat-toolbar  class="dark">
+
+    
+   <button class="menu-button" mat-icon-button (click)="nav.toggle()">  <mat-icon class="menu1">menu</mat-icon></button>
+    <span class="supergas"><a mat-icon-button routerLink="/dashboard"><span class="text-color">SUPERGAS</span></a></span>
+    <span class="example-spacer"></span>
+
+ 
+    <div class="height" *ngFor="let component of components">
+            
+          <span *ngIf="component != 'Profile'" [routerLink]="component.baseUrl" class="text-color">
+            {{component.name}} </span>
+             
+        <ng-container *ngIf="component == 'Profile'">
+            <a mat-icon-button style="width: auto;" [matMenuTriggerFor]="logoutMenu">
+                <span class="text-color">Logout
+                    <small class="bi bi-box-arrow-right"></small> </span></a>
+                    
+        </ng-container>
+    </div>
+
+    <img class="img" src="/assets/logout.jpg" alt="" [matMenuTriggerFor]="logoutMenu">
+    
+     <mat-menu #logoutMenu="matMenu">
+         <button mat-menu-item>profile</button>
+        <button mat-menu-item data-bs-dismiss="alert" (click)="logoutUser()" routerLink="/login">logout - {{username}}</button>
+    </mat-menu>
+ 
+</mat-toolbar>
+
+</div>
+
+ <div class="mat-sidenav-container1"> 
+<mat-sidenav-container class="sidenav-wrapper">
+    <mat-sidenav opened #nav  mode="side" style="background: black;" >
+        <mat-nav-list style="color: black;" >
+            
+            <a mat-list-item style="color: white;" [matMenuTriggerFor]="homeMenu" ><mat-icon class="text-color1" >home</mat-icon><span style="color: white ;">Home</span> </a>
+            <a mat-list-item  [matMenuTriggerFor]="securityMenu" ><mat-icon class="text-color1">security</mat-icon><span style="color: white ;">Security</span>Security</a>
+            <a mat-list-item  href="/folder-cards" ><mat-icon class="text-color1">folder</mat-icon><span style="color: white ;">Folder</span> </a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+ 
+    
+</mat-sidenav-container>
+</div>
+
+<mat-menu #homeMenu="matMenu">
+    <button mat-menu-item>New Registraion</button>
+   <button mat-menu-item>Gas Connection</button>
+   <button mat-menu-item>Customer Care </button>
+   <button mat-menu-item>Details</button>
+</mat-menu>
+<mat-menu #securityMenu="matMenu">
+    <button mat-menu-item >Security Details</button>
+     <button mat-menu-item>Emergency Contact</button>
+
+</mat-menu>
+
+
+ <!--  -->
+ 
+ 
+ 
+
+
+  

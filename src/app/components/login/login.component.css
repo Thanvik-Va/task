@@ -1,0 +1,11 @@
+.full-width{
+    width: 500px;
+}
+.error{
+    color: red;
+} 
+.error-message{
+    color: red;
+   
+    height: -4px;
+}
